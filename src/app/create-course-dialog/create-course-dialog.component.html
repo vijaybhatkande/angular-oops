@@ -1,0 +1,51 @@
+<h4 mat-dialog-title class="a-c">Add Course</h4>
+<div mat-dialog-content>
+  <p>
+  <mat-form-field appearance="fill" class="full-width">
+    <input matInput placeholder="Course Name" name="course_name" [(ngModel)]="newCourse.courseName" >
+  </mat-form-field>
+  </p>
+  <p>
+
+    <mat-form-field appearance="fill" class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Course selection">
+        <mat-chip
+          *ngFor="let course of courses"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(course)">
+          {{course.display}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Courses Tag."
+          #courseInput
+          [formControl]="courseCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let course of filteredCourse | async" [value]="course">
+          {{course.display}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
+  </p>
+  <p>
+    <mat-form-field appearance="fill" class="full-width">
+      <textarea matInput placeholder="Course Description" [(ngModel)]="newCourse.description"></textarea>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="fill" class="full-width">
+      <input matInput placeholder="Course Price" type="number" [(ngModel)]="newCourse.coursePrice" >
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions style="float: right">
+  <button mat-button class="add" (click)="onAddClick()">Add</button>
+  <button mat-stroked-button color="warn" [mat-dialog-close]="false" cdkFocusInitial>Cancel</button>
+</div>

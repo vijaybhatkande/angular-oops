@@ -1,0 +1,16 @@
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep .mat-form-field-infix {
+  border-top: 0;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+.add {
+  background: rgba(87,87,87,0.97);
+  color: white;
+}

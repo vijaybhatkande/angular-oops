@@ -1,0 +1,56 @@
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+.top-bar {
+  height: 42px;
+  background: #d1d1d1;
+  display: flex;
+  flex-flow: row;
+  padding: 5px 15px 5px 15px;
+}
+
+.left-content {
+  color: gray;
+  font-weight: 500;
+  width: 150px;
+}
+
+.search-container {
+  width: calc( 100% - 200px );
+}
+
+.add-container {
+  width: 50px;
+}
+
+.search-text-bar {
+  border: 0;
+  height: 39px;
+  border-radius: 20px;
+  width: 40%;
+}
+
+.left-content span {
+  line-height: 2em;
+  font-size: 18px;
+}
+
+.search-text {
+  text-indent:36px;
+  background-image: url(../../assets/logo/search.svg) ;
+  background-position: 11px 11px;
+  background-size: 19px;
+  background-repeat: no-repeat;
+}
+
+.search-text:focus {
+  outline: none;
+}
+
+table {
+  width: 100%;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="top-bar">
+    <div class="left-content">
+      <span>Course Content</span>
+    </div>
+    <div class="search-container">
+      <input class="search-text-bar search-text" [(ngModel)] = "searchStr" (input)="applyFilter()" placeholder="Search">
+    </div>
+    <div class="add-container">
+      <button mat-mini-fab  (click)="addCourseDialog()"  >
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="table-container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="courseName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Name </th>
+          <td mat-cell *matCellDef="let row"> {{row.courseName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tags">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tags </th>
+          <td mat-cell *matCellDef="let row"> {{row.tags}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="coursePrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Price </th>
+          <td mat-cell *matCellDef="let row" > {{"₹ " + row.coursePrice}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>

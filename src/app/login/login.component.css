@@ -1,0 +1,38 @@
+.container {
+  margin: 70px auto 0 auto;
+  position: relative;
+  width: 238.547px;
+  padding: 0 10px;
+
+}
+
+.logo-container {
+  margin: auto;
+  width: 70px;
+  height: 70px;
+  position: relative;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+}
+
+.welcome-text {
+  color: gray;
+  font-weight: 500;
+  font-size: 16px;
+
+}
+
+.forgot-password {
+  color: gray;
+  font-size: 14px;
+  font-weight: 500;
+
+}
+
+.login-button {
+  color: white;
+  background: gray;
+}

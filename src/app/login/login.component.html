@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="logo-container">
+    <img class="logo" src="../../assets/logo/dummy.png">
+  </div>
+  <div class="welcome-text-container">
+    <p class="welcome-text">Welcome Back, Please Login to your account {{errMsg}}</p>
+  </div>
+  <form [formGroup]="loginForm"class="login-form">
+    <p>
+      <mat-form-field appearance="outline" >
+        <mat-icon matPrefix>perm_identity</mat-icon>
+        <input matInput placeholder="Email Address" type="email" [(ngModel)]="user.email" name="email"  formControlName="email" required>
+        <mat-error *ngIf="hasError('email')">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-icon matPrefix>lock</mat-icon>
+        <input matInput placeholder="Password" type="password" formControlName="password" name="password"  [(ngModel)]="user.password" required>
+        <mat-error *ngIf="hasError('password')">{{getErrorMessage('password')}}</mat-error>
+
+      </mat-form-field>
+    </p>
+    <p><mat-error>{{errMsg}}</mat-error></p>
+    <p class="a-r forgot-password"><a>Forgot Password</a></p>
+    <p ><button mat-raised-button type="submit" (click)="onLogin()"  class="full-width a-c login-button">Login</button></p>
+
+  </form>
+
+</div>
